@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 221 73% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 221 73% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 73% 10%;
+    --primary: 216 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 221 73% 10%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 221 73% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 216 100% 50%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 221 73% 10%; /* #07142D */
+    --foreground: 0 0% 100%;
+    --card: 222 47% 14%;
+    --card-foreground: 0 0% 100%;
+    --popover: 221 73% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 216 100% 50%; /* #0066FF */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 47% 18%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 47% 18%;
+    --muted-foreground: 215 20.2% 75%;
+    --accent: 222 47% 18%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 47% 20%;
+    --input: 222 47% 20%;
+    --ring: 216 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1];
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl font-bold leading-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold leading-snug;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)];
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.8;
+  }
+}
+
+.animate-particles .particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #0066FF;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #0066FF;
+  animation: particle-float 6s ease-in-out infinite;
+}
+
+.animate-particles .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+.animate-particles .particle:nth-child(2) { left: 30%; top: 70%; animation-delay: 1s; }
+.animate-particles .particle:nth-child(3) { left: 50%; top: 40%; animation-delay: 2s; }
+.animate-particles .particle:nth-child(4) { left: 70%; top: 80%; animation-delay: 3s; }
+.animate-particles .particle:nth-child(5) { left: 85%; top: 30%; animation-delay: 4s; }
+.animate-particles .particle:nth-child(6) { left: 20%; top: 50%; animation-delay: 5s; }
